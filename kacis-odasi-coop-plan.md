@@ -79,10 +79,10 @@ Bu yüzden bana yardım eden herkesin (Claude Code dahil) şu şekilde ilerlemes
 ---
 
 ## FAZ 4 — Co-op Bulmacalar (oyunun kalbi)
-- [ ] **Bulmaca 1 (basit, tek kişilik):** Bir şifre bulup bir kilide girme
-- [ ] **Bulmaca 2 (co-op, iki kişilik):** İki farklı düğmeye AYNI ANDA iki farklı oyuncunun basması gerekiyor (bu, "networked event senkronizasyonu" öğretir)
-- [ ] **Bulmaca 3 (co-op, bilgi paylaşımı):** Bir oyuncu bir ipucunu görür (örn. bir duvarda yazı), ama şifreyi girmesi gereken obje odanın başka bir yerinde, diğer oyuncunun yanında — oyuncular birbirine (oyun içi chat ya da sesli konuşarak) bilgi aktarmalı
-- [ ] Bulmacaların çözülme durumunun (kim neyi açtı, hangi kilit açıldı) TÜM oyunculara senkronize olduğundan emin ol
+- [x] **Bulmaca 1 (basit, tek kişilik):** Bir şifre bulup bir kilide girme
+- [x] **Bulmaca 2 (co-op, iki kişilik):** İki farklı düğmeye AYNI ANDA iki farklı oyuncunun basması gerekiyor (bu, "networked event senkronizasyonu" öğretir) — mesafe tabanlı plaka sistemi ile yapıldı
+- [x] **Bulmaca 3 (co-op, bilgi paylaşımı):** Bir oyuncu bir ipucunu görür (örn. bir duvarda yazı), ama şifreyi girmesi gereken obje odanın başka bir yerinde, diğer oyuncunun yanında — oyuncular birbirine (oyun içi chat ya da sesli konuşarak) bilgi aktarmalı
+- [x] Bulmacaların çözülme durumunun (kim neyi açtı, hangi kilit açıldı) TÜM oyunculara senkronize olduğundan emin ol
 
 **Milestone:** En az 3 farklı bulmaca türü çalışıyor, ikisi gerçek co-op gerektiriyor (yalnız oynanamıyor).
 
