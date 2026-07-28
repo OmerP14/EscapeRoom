@@ -21,6 +21,7 @@ public class CodeLock : Interactable
     {
         if (isUnlocked.Value) return;
 
+        CodeLockUI.Instance.SetCurrentLock(this);
         uiPanel.SetActive(true);
         codeInputField.text = "";
         Cursor.lockState = CursorLockMode.None;
@@ -34,6 +35,7 @@ public class CodeLock : Interactable
 
     public void SubmitCode()
     {
+        
         if (codeInputField.text == correctCode)
         {
             SubmitCodeRpc();
@@ -44,7 +46,9 @@ public class CodeLock : Interactable
     [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
     private void SubmitCodeRpc()
     {
+        Debug.Log("SubmitCodeRpc calisti, IsServer: " + IsServer);
         isUnlocked.Value = true;
+       
     }
 
     public void ClosePanel()
@@ -61,6 +65,7 @@ public class CodeLock : Interactable
 
     private void ApplyState(bool unlocked)
     {
+       
         if (door != null)
         {
             door.SetActive(!unlocked);
