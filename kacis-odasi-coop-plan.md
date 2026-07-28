@@ -59,10 +59,10 @@ Bu yüzden bana yardım eden herkesin (Claude Code dahil) şu şekilde ilerlemes
 ---
 
 ## FAZ 2 — Oda ve Ortam
-- [ ] Basit bir oda modeli/sahnesi kur (4 duvar, zemin, birkaç obje — detaylı sanat şimdilik önemli değil)
-- [ ] Kamera ayarları (3. şahıs ya da top-down, tercihine göre)
-- [ ] Oyuncu karakterine basit bir görsel (capsule yeterli, sonra değiştiririz)
-- [ ] Işıklandırma (atmosfer için, basit bile olsa fark yaratır)
+- [x] Basit bir oda modeli/sahnesi kur (4 duvar, zemin, birkaç obje — detaylı sanat şimdilik önemli değil)
+- [x] Kamera ayarları (FPS/first-person seçildi — CameraHolder + fare ile bakış)
+- [x] Oyuncu karakterine basit bir görsel (capsule yeterli, sonra değiştiririz)
+- [x] Işıklandırma (atmosfer için, basit bile olsa fark yaratır) — varsayılan Directional Light + Global Volume yeterli görüldü
 
 **Milestone:** Oda içinde 2-4 oyuncu dolaşabiliyor, çarpışma/duvar sınırları çalışıyor.
 
