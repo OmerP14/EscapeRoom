@@ -69,10 +69,10 @@ Bu yüzden bana yardım eden herkesin (Claude Code dahil) şu şekilde ilerlemes
 ---
 
 ## FAZ 3 — Etkileşim Sistemi
-- [ ] "Etkileşime girilebilir obje" için temel bir script (örn. `Interactable.cs`)
-- [ ] Oyuncunun yakınındaki objeyle etkileşime girmesi (E tuşu ya da tıklama)
-- [ ] Etkileşimin **networked** olması — yani bir oyuncunun bir objeyi açması, diğer oyuncuların ekranında da görünmesi (ServerRpc/ClientRpc kavramlarını burada öğreneceğiz)
-- [ ] Basit bir örnek: bir çekmeceyi aç, içinden bir anahtar/ipucu çıksın, herkes görsün
+- [x] "Etkileşime girilebilir obje" için temel bir script (örn. `Interactable.cs`)
+- [x] Oyuncunun yakınındaki objeyle etkileşime girmesi (E tuşu ya da tıklama)
+- [x] Etkileşimin **networked** olması — yani bir oyuncunun bir objeyi açması, diğer oyuncuların ekranında da görünmesi (Rpc + NetworkVariable ile yapıldı)
+- [x] Basit bir örnek: bir çekmeceyi aç, içinden bir anahtar/ipucu çıksın, herkes görsün
 
 **Milestone:** Bir oyuncunun yaptığı etkileşim, diğer oyuncunun ekranında da anında yansıyor.
 
