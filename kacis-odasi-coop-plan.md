@@ -31,27 +31,26 @@ Bu yüzden bana yardım eden herkesin (Claude Code dahil) şu şekilde ilerlemes
 ---
 
 ## FAZ 0 — Proje Kurulumu
-- [ ] Yeni Unity projesi oluştur (3D ya da 2D — önerim: basit 3D, oda hissi daha kolay verir, ama 2D top-down da olur)
-- [ ] Git + GitHub reposu kur (önceki projelerdeki gibi)
-- [ ] Package Manager'dan şu paketleri yükle:
-  - [ ] Netcode for GameObjects
-  - [ ] Unity Transport
-  - [ ] Relay
-  - [ ] Lobby
-  - [ ] Authentication
-- [ ] Unity Cloud / Unity Gaming Services (UGS) hesabını projeye bağla (Services penceresinden)
+- [x] Yeni Unity projesi oluştur (3D ya da 2D — önerim: basit 3D, oda hissi daha kolay verir, ama 2D top-down da olur)
+- [x] Git + GitHub reposu kur (önceki projelerdeki gibi)
+- [x] Package Manager'dan şu paketleri yükle:
+  - [x] Netcode for GameObjects
+  - [x] Unity Transport
+  - [x] Relay/Lobby (birleşik "Multiplayer Services" paketi olarak — Relay paketi deprecated olduğu için)
+  - [x] Authentication
+- [x] Unity Cloud / Unity Gaming Services (UGS) hesabını projeye bağla (Services penceresinden)
 
 **Milestone:** Paketler hatasız import oluyor, Services paneli bağlı görünüyor.
 
 ---
 
 ## FAZ 1 — Networking Temelleri (EN KRİTİK FAZ)
-- [ ] Boş bir sahnede `NetworkManager` objesi oluştur
-- [ ] Basit bir "Player" prefab'ı yap (kapsül/küp, `NetworkObject` + `NetworkTransform` component'leriyle)
-- [ ] Host/Client başlatma UI'ı: "Host Olarak Başlat" / "Katıl" butonları
-- [ ] Relay ile bir "oda kodu" üretme (host için) ve kodla katılma (client için) akışını kur
-- [ ] Test: İki farklı Unity Editor penceresi (ya da bir build + bir editor) açıp, biri host, diğeri client olarak bağlanabiliyor mu kontrol et
-- [ ] İki oyuncunun hareketinin birbirinde göründüğünü doğrula
+- [x] Boş bir sahnede `NetworkManager` objesi oluştur
+- [x] Basit bir "Player" prefab'ı yap (kapsül/küp, `NetworkObject` + `NetworkTransform` component'leriyle — owner-authoritative `ClientNetworkTransform` kullanıldı)
+- [x] Host/Client başlatma UI'ı: "Host Olarak Başlat" / "Katıl" butonları
+- [x] Relay ile bir "oda kodu" üretme (host için) ve kodla katılma (client için) akışını kur
+- [x] Test: İki farklı Unity Editor penceresi (ya da bir build + bir editor) açıp, biri host, diğeri client olarak bağlanabiliyor mu kontrol et — Windows Editor/build + Mac Editor arasında da gerçek Relay testi yapıldı
+- [x] İki oyuncunun hareketinin birbirinde göründüğünü doğrula
 
 **Milestone:** İki ayrı bilgisayar/pencere, aynı oda koduyla bağlanıp, ikisi de aynı sahnede birbirinin hareketini görebiliyor. **Bu noktaya gelmek, projenin en zor %40'ını geçmek demek.**
 
