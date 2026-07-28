@@ -1,13 +1,20 @@
 using Unity.Netcode;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : NetworkBehaviour
 {
     public float moveSpeed = 5f;
     public float mouseSensitivity = 2f;
     public Transform cameraHolder;
 
+    private CharacterController characterController;
     private float verticalRotation = 0f;
+
+    private void Awake()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
 
     public override void OnNetworkSpawn()
     {
@@ -37,7 +44,7 @@ public class PlayerMovement : NetworkBehaviour
 
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        Vector3 move = (transform.right * h + transform.forward * v) * moveSpeed * Time.deltaTime;
-        transform.Translate(move, Space.World);
+        Vector3 move = (transform.right * h + transform.forward * v) * moveSpeed;
+        characterController.Move(move * Time.deltaTime);
     }
 }
