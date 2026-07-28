@@ -15,6 +15,7 @@ public class RelayManager : MonoBehaviour
     [SerializeField] private UnityTransport transport;
     [SerializeField] private TMP_InputField joinCodeInput;
     [SerializeField] private TMP_Text hostCodeText;
+    [SerializeField] private GameObject mainMenuPanel;
 
     private async void Awake()
     {
@@ -53,6 +54,7 @@ public class RelayManager : MonoBehaviour
             transport.SetRelayServerData(relayServerData);
 
             NetworkManager.Singleton.StartHost();
+            mainMenuPanel.SetActive(false);
         }
         catch (Exception e)
         {
@@ -71,6 +73,7 @@ public class RelayManager : MonoBehaviour
             transport.SetRelayServerData(relayServerData);
 
             NetworkManager.Singleton.StartClient();
+            mainMenuPanel.SetActive(false);
         }
         catch (Exception e)
         {

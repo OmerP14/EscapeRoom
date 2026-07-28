@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Interactable : NetworkBehaviour
 {
-    public void Interact()
+    public virtual void Interact()
     {
         InteractServerRpc();
     }
