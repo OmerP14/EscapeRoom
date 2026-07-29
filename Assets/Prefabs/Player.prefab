@@ -454,8 +454,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a31e05a9a5a061643ae8b5562d436f42, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3374592350280442303}
   m_SourcePrefab: {fileID: 100100000, guid: a31e05a9a5a061643ae8b5562d436f42, type: 3}
+--- !u!1 &3547882772624266826 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a31e05a9a5a061643ae8b5562d436f42, type: 3}
+  m_PrefabInstance: {fileID: 4466996079622253339}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3374592350280442303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3547882772624266826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863303d67b4007343b56f39aeb2c0e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClientNetworkAnimator
+  ShowTopMostFoldoutHeaderGroup: 1
+  NetworkAnimatorExpanded: 0
+  AuthorityMode: 0
+  m_Animator: {fileID: 7824829451039069834}
+  TransitionStateInfoList: []
+  AnimatorParameterEntries:
+    ParameterEntries:
+    - name: IsWalking
+      NameHash: 1282839668
+      Synchronize: 1
+      ParameterType: 4
+  AnimatorParametersExpanded: 0
 --- !u!4 &4212919784465960176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a31e05a9a5a061643ae8b5562d436f42, type: 3}
