@@ -16,7 +16,7 @@ public class RelayManager : MonoBehaviour
     [SerializeField] private TMP_InputField joinCodeInput;
     [SerializeField] private TMP_Text hostCodeText;
     [SerializeField] private GameObject mainMenuPanel;
-
+    [SerializeField] private GameObject menuCamera;
     private async void Awake()
     {
         await InitServices();
@@ -55,6 +55,7 @@ public class RelayManager : MonoBehaviour
 
             NetworkManager.Singleton.StartHost();
             mainMenuPanel.SetActive(false);
+            if (menuCamera != null) menuCamera.SetActive(false);
         }
         catch (Exception e)
         {
@@ -74,6 +75,7 @@ public class RelayManager : MonoBehaviour
 
             NetworkManager.Singleton.StartClient();
             mainMenuPanel.SetActive(false);
+            if (menuCamera != null) menuCamera.SetActive(false);
         }
         catch (Exception e)
         {

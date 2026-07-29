@@ -11,6 +11,37 @@ public class GameUIManager : MonoBehaviour
 
     private bool subscribed = false;
 
+    private void Start()
+    {
+        if (NetworkManager.Singleton != null)
+        {
+            NetworkManager.Singleton.OnClientStopped += HandleNetworkStopped;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (NetworkManager.Singleton != null)
+        {
+            NetworkManager.Singleton.OnClientStopped -= HandleNetworkStopped;
+        }
+    }
+
+    private void HandleNetworkStopped(bool wasHost)
+    {
+        StartCoroutine(ReloadSceneRoutine());
+    }
+
+    private System.Collections.IEnumerator ReloadSceneRoutine()
+    {
+        if (NetworkManager.Singleton != null)
+        {
+            Destroy(NetworkManager.Singleton.gameObject);
+        }
+        yield return null;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     void Update()
     {
         if (!subscribed)
@@ -52,7 +83,8 @@ public class GameUIManager : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        winPanel.SetActive(false);
+        losePanel.SetActive(false);
         NetworkManager.Singleton.Shutdown();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
