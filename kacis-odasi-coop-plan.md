@@ -89,10 +89,10 @@ Bu yüzden bana yardım eden herkesin (Claude Code dahil) şu şekilde ilerlemes
 ---
 
 ## FAZ 5 — Oyun Döngüsü
-- [ ] Geri sayım süresi (örn. 10 dakika), tüm oyunculara senkronize
-- [ ] Kazanma durumu: oda çıkışını bulup kaçınca "Kaçtınız!" ekranı
-- [ ] Kaybetme durumu: süre bitince "Süre Doldu" ekranı
-- [ ] Lobby'ye/ana menüye dönüş akışı
+- [x] Geri sayım süresi (örn. 10 dakika), tüm oyunculara senkronize
+- [x] Kazanma durumu: oda çıkışını bulup kaçınca "Kaçtınız!" ekranı
+- [x] Kaybetme durumu: süre bitince "Süre Doldu" ekranı
+- [x] Lobby'ye/ana menüye dönüş akışı
 
 **Milestone:** Baştan sona oynanabilir bir tur: lobiye katıl → oda içinde bulmacaları çöz → kazan/kaybet → tekrar oyna.
 
