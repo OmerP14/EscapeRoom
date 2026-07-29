@@ -17,6 +17,9 @@ public class RelayManager : MonoBehaviour
     [SerializeField] private TMP_Text hostCodeText;
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject menuCamera;
+
+    private string currentJoinCode = "";
+
     private async void Awake()
     {
         await InitServices();
@@ -28,12 +31,10 @@ public class RelayManager : MonoBehaviour
         {
             await UnityServices.InitializeAsync();
         }
-
         if (!AuthenticationService.Instance.IsSignedIn)
         {
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
         }
-
         Debug.Log("Unity Services'e giris yapildi. Player ID: " + AuthenticationService.Instance.PlayerId);
     }
 
@@ -43,24 +44,16 @@ public class RelayManager : MonoBehaviour
         {
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3);
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
-
             Debug.Log("ODA KODU: " + joinCode);
-            if (hostCodeText != null)
-            {
-                hostCodeText.text = "Oda Kodu: " + joinCode;
-            }
-
+            currentJoinCode = joinCode;
+            if (hostCodeText != null) hostCodeText.text = "Oda Kodu: " + joinCode;
             RelayServerData relayServerData = allocation.ToRelayServerData("dtls");
             transport.SetRelayServerData(relayServerData);
-
             NetworkManager.Singleton.StartHost();
             mainMenuPanel.SetActive(false);
             if (menuCamera != null) menuCamera.SetActive(false);
         }
-        catch (Exception e)
-        {
-            Debug.LogError("CreateRelay hatasi: " + e);
-        }
+        catch (Exception e) { Debug.LogError("CreateRelay hatasi: " + e); }
     }
 
     public async void JoinRelay()
@@ -69,17 +62,17 @@ public class RelayManager : MonoBehaviour
         {
             string joinCode = joinCodeInput.text;
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
-
             RelayServerData relayServerData = joinAllocation.ToRelayServerData("dtls");
             transport.SetRelayServerData(relayServerData);
-
             NetworkManager.Singleton.StartClient();
             mainMenuPanel.SetActive(false);
             if (menuCamera != null) menuCamera.SetActive(false);
         }
-        catch (Exception e)
-        {
-            Debug.LogError("JoinRelay hatasi: " + e);
-        }
+        catch (Exception e) { Debug.LogError("JoinRelay hatasi: " + e); }
+    }
+
+    public void CopyCodeToClipboard()
+    {
+        GUIUtility.systemCopyBuffer = currentJoinCode;
     }
 }

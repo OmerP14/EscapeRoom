@@ -35,6 +35,13 @@ public class PlayerMovement : NetworkBehaviour
         if (!IsOwner) return;
         if (GameManager.Instance != null && GameManager.Instance.gameState.Value != 0) return;
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            bool isLocked = Cursor.lockState == CursorLockMode.Locked;
+            Cursor.lockState = isLocked ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = isLocked;
+        }
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
