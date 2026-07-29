@@ -7,6 +7,7 @@ public class PlayerMovement : NetworkBehaviour
     public float moveSpeed = 5f;
     public float mouseSensitivity = 2f;
     public Transform cameraHolder;
+    public Animator animator;
 
     private CharacterController characterController;
     private float verticalRotation = 0f;
@@ -47,5 +48,11 @@ public class PlayerMovement : NetworkBehaviour
         float v = Input.GetAxis("Vertical");
         Vector3 move = (transform.right * h + transform.forward * v) * moveSpeed;
         characterController.Move(move * Time.deltaTime);
+
+        if (animator != null)
+        {
+            bool isWalking = h != 0f || v != 0f;
+            animator.SetBool("IsWalking", isWalking);
+        }
     }
 }
