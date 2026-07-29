@@ -32,6 +32,7 @@ public class PlayerMovement : NetworkBehaviour
     void Update()
     {
         if (!IsOwner) return;
+        if (GameManager.Instance != null && GameManager.Instance.gameState.Value != 0) return;
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
