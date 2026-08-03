@@ -37,10 +37,12 @@ public class PlayerMovement : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            bool isLocked = Cursor.lockState == CursorLockMode.Locked;
-            Cursor.lockState = isLocked ? CursorLockMode.None : CursorLockMode.Locked;
-            Cursor.visible = isLocked;
+            bool newPaused = !(GameManager.Instance != null && GameManager.Instance.isPaused.Value);
+            if (GameManager.Instance != null) GameManager.Instance.SetPausedRpc(newPaused);
+            if (PauseMenuUI.Instance != null) PauseMenuUI.Instance.SetPaused(newPaused);
         }
+
+        if (GameManager.Instance != null && GameManager.Instance.isPaused.Value) return;
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;

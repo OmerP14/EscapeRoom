@@ -42,6 +42,7 @@ public class RelayManager : MonoBehaviour
     {
         try
         {
+            await InitServices();
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3);
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
             Debug.Log("ODA KODU: " + joinCode);
@@ -60,6 +61,7 @@ public class RelayManager : MonoBehaviour
     {
         try
         {
+            await InitServices();
             string joinCode = joinCodeInput.text;
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
             RelayServerData relayServerData = joinAllocation.ToRelayServerData("dtls");
